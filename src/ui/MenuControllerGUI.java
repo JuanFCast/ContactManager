@@ -2,6 +2,8 @@ package ui;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,11 +47,13 @@ public class MenuControllerGUI {
     
     private ObservableList<Contact> observableList;
     private ContactManager contactManager;
+    private int ID;
     
     
     
     public MenuControllerGUI() {
     	contactManager = new ContactManager();
+    	ID = 2;
     }
 
    private void itializeTableView() {
@@ -105,6 +109,33 @@ public class MenuControllerGUI {
     	alert.setContentText("Contact Manager Aplication");
     	alert.showAndWait();
     }
+    
+    
+    
+    @FXML
+    public void addContact(ActionEvent event) {
+    	String name = txtName.getText(); 
+    	String email = txtEmail.getText();
+    	String id = "";
+    	
+    	id+=ID;
+    	
+    	
+    	Contact newContact = new Contact(id, name, email);
+    	
+    	
+    	
+    	if(contactManager.addNewContact(newContact) == true) {
+
+            JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el contacto");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha podido añadir el contacto");
+        }
+    	
+    	ID++;
+    }
+    
     
 }
 

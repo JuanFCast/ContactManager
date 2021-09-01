@@ -30,4 +30,15 @@ public class ContactManager {
 	}
 	
 	
+	public boolean addNewContact(Contact newContact) {
+
+        if(contacts.add(newContact)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+	
+	
 }
