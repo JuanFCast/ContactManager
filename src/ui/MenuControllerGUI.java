@@ -95,10 +95,6 @@ public class MenuControllerGUI {
     
     
     
-    @FXML
-    public void importContacts(ActionEvent event) {
-    	
-    }
      
     
     @FXML
@@ -134,6 +130,18 @@ public class MenuControllerGUI {
         }
     	
     	ID++;
+    }
+    
+    
+    @FXML
+    public void exportContacts(ActionEvent event) throws IOException {
+    	contactManager.exportData();
+    }
+    
+    @FXML
+    public void importContacts(ActionEvent event) throws IOException {
+    	contactManager.importData();
+    	itializeTableView();
     }
     
     
